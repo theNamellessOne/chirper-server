@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { ChirpDto } from './dto/chirp.dto';
 import { PrismaService } from '../prisma/prisma.service';
+import { ChirpDto } from './dto/chirp.dto';
 
 @Injectable()
 export class ChirpService {
@@ -8,7 +8,7 @@ export class ChirpService {
 
   create(chirpDto: ChirpDto) {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { id, author, ...result } = chirpDto;
+    const { id, ...result } = chirpDto;
     return this.prisma.chirp.create({ data: result });
   }
 
